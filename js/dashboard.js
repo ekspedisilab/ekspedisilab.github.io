@@ -25,10 +25,8 @@ if (!session) {
 
   if (error) {
     if (error.code === 'PGRST116') {
-      console.log("Profile pengguna tidak ditemukan!");
-      nameEl.textContent = 'Profile belum dibuat';
-      roleEl.textContent = '';
-      greetingNameEl.textContent = 'Pengguna';
+      console.log("Profile pengguna tidak ditemukan! Redirecting...");
+      window.location.href = 'unregistered.html';
     } else {
       console.error('Gagal memuat profil:', error);
       nameEl.textContent = 'Terjadi kesalahan';

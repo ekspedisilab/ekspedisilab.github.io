@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Dashboard</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 min-h-screen flex items-center justify-center px-4">
+  <div class="bg-white w-full max-w-sm p-8 rounded-2xl shadow-xl text-center">
+    <p id="title" class="text-lg text-gray-800 font-medium mt-3">Terjadi kesalahan!</p>
+    <p id="status" class="text-sm text-gray-500 mt-1">Profile pengguna tidak ditemukan! Silahkan hubungi Admin/Supervisor</p>
+    <p id="user-email" class="text-gray-600 mt-2 text-sm">Loading...</p>
+    <p id="user-id" class="text-gray-500 text-xs mt-1"></p>
+
+    <button 
+      id="logout-btn"
+      class="mt-6 w-full bg-red-500 hover:bg-red-700 text-white font-semibold py-2 rounded-full transition duration-200"
+    >
+      Logout
+    </button>
+  </div>
+
+  <script type="module" src="./js/unregistered.js"></script>
+</body>
+</html>
