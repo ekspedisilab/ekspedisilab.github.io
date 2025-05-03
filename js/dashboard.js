@@ -1,9 +1,8 @@
-import { supabaseUrl, supabase } from "./config/supabase.js";
+import { supabase } from "./config/supabase.js";
 
-const emailEl = document.getElementById('user-email');
-const idEl = document.getElementById('user-id');
 const nameEl = document.getElementById('user-name');
 const roleEl = document.getElementById('user-role');
+const greetingNameEl = document.getElementById('greeting-name');
 
 const { data: { session } } = await supabase.auth.getSession();
 
@@ -11,8 +10,6 @@ if (!session) {
   window.location.href = 'index.html';
 } else {
   const user = session.user;
-  emailEl.textContent = `Logged in as: ${user.email}`;
-  idEl.textContent = `User ID: ${user.id}`;
 
   const { data: profile, error } = await supabase
     .from('profiles')
@@ -28,15 +25,20 @@ if (!session) {
 
   if (error) {
     if (error.code === 'PGRST116') {
-        console.log("Profile pengguna tidak ditemukan!");
-        nameEl.textContent = 'Profile pengguna tidak ditemukan! Silahkan hubungi Admin/Supervisor';
+      console.log("Profile pengguna tidak ditemukan!");
+      nameEl.textContent = 'Profile belum dibuat';
+      roleEl.textContent = '';
+      greetingNameEl.textContent = 'Pengguna';
     } else {
-        console.error('Failed to load profile:', error);
-        nameEl.textContent = 'Terjadi kesalahan!';
+      console.error('Gagal memuat profil:', error);
+      nameEl.textContent = 'Terjadi kesalahan';
+      roleEl.textContent = '';
+      greetingNameEl.textContent = 'Pengguna';
     }
   } else {
-    nameEl.textContent = `Name: ${profile.full_name}`;
-    roleEl.textContent = `Role: ${profile.roles?.name || 'Unknown'}`;
+    nameEl.textContent = profile.full_name;
+    roleEl.textContent = profile.roles?.name || 'Peran tidak ditemukan';
+    greetingNameEl.textContent = profile.full_name;
   }
 }
 

@@ -5,21 +5,37 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Dashboard</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+        rel="stylesheet">
 </head>
-<body class="bg-gray-100 min-h-screen flex items-center justify-center px-4">
-  <div class="bg-white w-full max-w-sm p-8 rounded-2xl shadow-xl text-center">
-    <h2 class="text-2xl font-bold text-gray-800">Welcome</h2>
-    <p id="user-email" class="text-gray-600 mt-2 text-sm">Loading...</p>
-    <p id="user-id" class="text-gray-500 text-xs mt-1"></p>
-    <p id="user-name" class="text-lg text-gray-800 font-medium mt-3"></p>
-    <p id="user-role" class="text-sm text-gray-500 mt-1"></p>
+<body class="bg-gray-100 min-h-screen flex">
+  <!-- Sidebar -->
+  <div class="w-64 bg-white rounded-r-3xl shadow-xl p-6 flex flex-col justify-between">
+    <div>
+      <h2 class="text-2xl font-bold text-gray-800 mb-6"><b><i>delvr!</i></b></h2>
 
-    <button 
-      id="logout-btn"
-      class="mt-6 w-full bg-red-600 hover:bg-red-700 text-white font-semibold py-2 rounded-full transition duration-200"
-    >
-      Logout
-    </button>
+      <nav class="space-y-2">
+        <a href="#" class="block py-2 px-4 rounded-full text-gray-600 hover:bg-indigo-100 hover:text-indigo-700">Dashboard</a>
+        <a href="#" class="block py-2 px-4 rounded-full text-gray-600 hover:bg-indigo-100 hover:text-indigo-700">Packages</a>
+        <a href="#" class="block py-2 px-4 rounded-full text-gray-600 hover:bg-indigo-100 hover:text-indigo-700">Users</a>
+      </nav>
+    </div>
+
+    <!-- Profile + Logout -->
+    <div class="bg-gray-100 rounded-2xl px-6 py-4 flex items-center justify-between">
+      <div>
+        <p id="user-name" class="text-lg font-semibold text-gray-700">Loading...</p>
+        <p id="user-role" class="text-sm text-gray-500">Loading...</p>
+      </div>
+      <div id="logout-btn" class="cursor-pointer text-gray-500 hover:text-gray-700 transition ml-4">
+        <span class="material-icons">logout</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main content -->
+  <div class="flex-1 p-10">
+    <h1 class="text-2xl font-bold text-gray-800">Selamat datang, <span id="greeting-name">User</span>!</h1>
   </div>
 
   <script type="module" src="./js/dashboard.js"></script>
