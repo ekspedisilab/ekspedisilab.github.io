@@ -14,7 +14,6 @@ if (!session) {
   emailEl.textContent = `Logged in as: ${user.email}`;
   idEl.textContent = `User ID: ${user.id}`;
 
-  // Fetch user profile including role name
   const { data: profile, error } = await supabase
     .from('profiles')
     .select(`
@@ -28,8 +27,13 @@ if (!session) {
     .single();
 
   if (error) {
-    console.error('Failed to load profile:', error);
-    nameEl.textContent = 'Failed to load profile';
+    if (error.code === 'PGRST116') {
+        console.log("Profile pengguna tidak ditemukan!");
+        nameEl.textContent = 'Profile pengguna tidak ditemukan! Silahkan hubungi Admin/Supervisor';
+    } else {
+        console.error('Failed to load profile:', error);
+        nameEl.textContent = 'Terjadi kesalahan!';
+    }
   } else {
     nameEl.textContent = `Name: ${profile.full_name}`;
     roleEl.textContent = `Role: ${profile.roles?.name || 'Unknown'}`;
