@@ -1,4 +1,4 @@
-import { supabaseUrl, supabase } from "./config/supabase.js";
+import { supabaseUrl, supabase } from "../../config/supabase.js";
 
 const emailEl = document.getElementById('user-email');
 const idEl = document.getElementById('user-id');

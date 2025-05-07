@@ -46,20 +46,12 @@
     <span class="material-icons text-2xl">menu</span>
   </button>
 
-  <script type="module" src="./js/dashboard.js"></script>
-
   <!-- Main content -->
   <div class="flex-1 p-10">
     <h1 class="text-2xl font-bold text-gray-800">Selamat datang, <span id="greeting-name">User</span>!</h1>
   </div>
 
-  <script type="module">
-    const toggleButton = document.getElementById('toggle-sidebar');
-    const sidebar = document.getElementById('sidebar');
-
-    toggleButton.addEventListener('click', () => {
-      sidebar.classList.toggle('hidden');
-    });
-  </script>
+  <script type="module" src="./js/pages/dashboard/main.js"></script>
+  <script type="module" src="./js/elements/navbar.js"></script>
 </body>
 </html>
