@@ -29,18 +29,9 @@ if (!session) {
       window.location.href = 'unregistered.html';
     } else {
       console.error('Gagal memuat profil:', error);
-      nameEl.textContent = 'Terjadi kesalahan';
-      roleEl.textContent = '';
       greetingNameEl.textContent = 'Pengguna';
     }
   } else {
-    nameEl.textContent = profile.full_name;
-    roleEl.textContent = profile.roles?.name || 'Peran tidak ditemukan';
     greetingNameEl.textContent = profile.full_name;
   }
 }
-
-document.getElementById('logout-btn').addEventListener('click', async () => {
-  await supabase.auth.signOut();
-  window.location.href = 'index.html';
-});
