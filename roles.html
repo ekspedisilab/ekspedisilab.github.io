@@ -45,31 +45,32 @@
   <button id="toggle-sidebar" class="fixed bottom-4 right-4 md:hidden flex items-center justify-center p-3 bg-gray-600 text-white rounded-xl shadow-lg hover:bg-gray-400 transition">
     <span class="material-icons text-2xl">menu</span>
   </button>
-
-  <!-- Main content -->
-  <div class="flex-1 p-10">
-    <div class="max-w-3xl mx-auto bg-white p-6 rounded-xl shadow-md">
-      <h1 class="text-2xl font-bold mb-4 text-gray-800">Manajemen Role</h1>
   
-      <!-- Add Role Form -->
-      <form id="role-form" class="mb-6 flex gap-4">
-        <input type="text" id="role-name" placeholder="Nama Role" required class="flex-1 p-2 border border-gray-300 rounded-md" />
-        <button type="submit" class="bg-indigo-600 text-white px-4 py-2 rounded-md hover:bg-indigo-700">Tambah</button>
-      </form>
-  
-      <!-- Roles List -->
-      <table class="w-full text-left border">
-        <thead>
-          <tr class="bg-gray-100 text-gray-700">
-            <th class="p-3 border-b">#</th>
-            <th class="p-3 border-b">Nama Role</th>
-            <th class="p-3 border-b">Aksi</th>
-          </tr>
-        </thead>
-        <tbody id="roles-table" class="text-gray-700">
-          <!-- Populated via JS -->
-        </tbody>
-      </table>
+  <div id="main-content" class="flex-1 bg-gray-100 overflow-y-auto p-10">
+    <div class="bg-white p-8 rounded-xl shadow-md">
+      <div class="max-w-3xl mx-auto bg-white p-6 rounded-xl shadow-md">
+        <h1 class="text-2xl font-bold mb-4 text-gray-800">Manajemen Role</h1>
+    
+        <!-- Add Role Form -->
+        <form id="role-form" class="mb-6 flex gap-4">
+          <input type="text" id="role-name" placeholder="Nama Role" required class="flex-1 p-2 border border-gray-300 rounded-full" />
+          <button type="submit" class="bg-indigo-600 text-white px-4 py-2 rounded-full hover:bg-indigo-700">Tambah</button>
+        </form>
+    
+        <!-- Roles List -->
+        <table class="w-full text-left border">
+          <thead>
+            <tr class="bg-gray-100 text-gray-700">
+              <th class="p-3 border-b">#</th>
+              <th class="p-3 border-b">Nama Role</th>
+              <th class="p-3 border-b">Aksi</th>
+            </tr>
+          </thead>
+          <tbody id="roles-table" class="text-gray-700">
+            <!-- Populated via JS -->
+          </tbody>
+        </table>
+      </div>
     </div>
   </div>
 
