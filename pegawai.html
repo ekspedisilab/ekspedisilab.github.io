@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Add New Profile</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<body class="bg-gray-100 min-h-screen flex">
+  <div id="sidebar" class="w-64 bg-white rounded-r-3xl shadow-xl p-6 flex flex-col justify-between hidden md:flex">
+    <div>
+      <h2 class="text-2xl font-bold text-gray-800 mb-6"><b><i>delvr!</i></b></h2>
+
+      <nav class="space-y-2">
+        <a href="#" class="flex items-center gap-3 py-2 px-4 rounded-full text-gray-600 hover:bg-indigo-100 hover:text-indigo-700">
+          <span class="material-icons text-xl">home</span>
+          <span class="text-lg">Home</span>
+        </a>
+        <a href="#" class="flex items-center gap-3 py-2 px-4 rounded-full text-gray-600 hover:bg-indigo-100 hover:text-indigo-700">
+          <span class="material-icons text-xl">local_shipping</span>
+          <span class="text-lg">Paket</span>
+        </a>
+        <a href="#" class="flex items-center gap-3 py-2 px-4 rounded-full text-gray-600 hover:bg-indigo-100 hover:text-indigo-700">
+          <span class="material-icons text-xl">groups</span>
+          <span class="text-lg">Akun</span>
+        </a>
+      </nav>
+    </div>
+
+    <div class="bg-gray-100 rounded-2xl px-6 py-4 flex items-center justify-between">
+      <div>
+        <p id="user-name" class="text-lg font-semibold text-gray-700">Loading...</p>
+        <p id="user-role" class="text-sm text-gray-500">Loading...</p>
+      </div>
+      <div id="logout-btn" class="cursor-pointer text-gray-500 hover:text-gray-700 transition ml-4">
+        <span class="material-icons">logout</span>
+      </div>
+    </div>
+  </div>
+
+  <button id="toggle-sidebar" class="fixed bottom-4 right-4 md:hidden flex items-center justify-center p-3 bg-gray-600 text-white rounded-xl shadow-lg hover:bg-gray-400 transition">
+    <span class="material-icons text-2xl">menu</span>
+  </button>
+
+  <div class="flex-1 p-10">
+    <div class="max-w-3xl mx-auto bg-white p-6 rounded-xl shadow-md">
+      <h1 class="text-2xl font-bold mb-4 text-gray-800">Add New Profile</h1>
+        <form id="profileForm" class="mb-6 space-y-6">
+        <div class="space-y-2">
+          <label for="full_name" class="text-sm font-semibold text-gray-700">Full Name</label>
+          <input type="text" id="full_name" name="full_name" placeholder="Enter full name" required class="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-600" />
+        </div>
+        <div class="space-y-2">
+          <label for="email" class="text-sm font-semibold text-gray-700">Email</label>
+          <input type="email" id="email" name="email" placeholder="Enter email" required class="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-600" />
+        </div>
+        <div class="space-y-2">
+          <label for="nik" class="text-sm font-semibold text-gray-700">NIK</label>
+          <input type="text" id="nik" name="nik" placeholder="Enter NIK" class="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-600" />
+        </div>
+        <div class="space-y-2">
+          <label for="phone" class="text-sm font-semibold text-gray-700">Phone</label>
+          <input type="text" id="phone" name="phone" placeholder="Enter phone number" class="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-600" />
+        </div>
+        <div class="space-y-2">
+          <label for="address" class="text-sm font-semibold text-gray-700">Address</label>
+          <textarea id="address" name="address" placeholder="Enter address" class="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-600"></textarea>
+        </div>
+        <div class="space-y-2">
+          <label for="birth_date" class="text-sm font-semibold text-gray-700">Birth Date</label>
+          <input type="date" id="birth_date" name="birth_date" class="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-600" />
+        </div>
+        <div class="space-y-2">
+          <label for="join_date" class="text-sm font-semibold text-gray-700">Join Date</label>
+          <input type="date" id="join_date" name="join_date" class="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-600" />
+        </div>
+        <div class="space-y-2">
+          <label for="role_id" class="text-sm font-semibold text-gray-700">Role ID</label>
+          <input type="number" id="role_id" name="role_id" placeholder="Enter Role ID" class="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-600" />
+        </div>
+        <div class="space-y-2">
+          <label for="photo_url" class="text-sm font-semibold text-gray-700">Photo URL</label>
+          <input type="url" id="photo_url" name="photo_url" placeholder="Enter Photo URL" class="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-600" />
+        </div>
+        <button type="submit" class="w-full py-3 bg-indigo-600 text-white rounded-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-600">
+          Submit
+        </button>
+      </form>
+      <p id="message" class="text-center text-gray-700"></p>
+    </div>
+  </div>
+
+  <script type="module" src="js/pages/pegawai/main.js"></script>
+  <script type="module" src="./js/elements/navbar.js"></script>
+</body>
+</html>
