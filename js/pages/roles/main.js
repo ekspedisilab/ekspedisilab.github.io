@@ -1,4 +1,7 @@
 import { supabase } from "../../config/supabase.js";
+import { loadSidebar } from "../../elements/sidebar.js";
+
+await loadSidebar();
 
 const tableBody = document.getElementById("roles-table");
 const form = document.getElementById("role-form");

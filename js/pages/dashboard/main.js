@@ -1,4 +1,7 @@
 import { supabase } from "../../config/supabase.js";
+import { loadSidebar } from "../../elements/sidebar.js";
+
+await loadSidebar();
 
 const nameEl = document.getElementById('user-name');
 const roleEl = document.getElementById('user-role');
@@ -35,3 +38,8 @@ if (!session) {
     greetingNameEl.textContent = profile.full_name;
   }
 }
+
+document.getElementById('logout-btn').addEventListener('click', async () => {
+  await supabase.auth.signOut();
+  window.location.href = 'index.html';
+});

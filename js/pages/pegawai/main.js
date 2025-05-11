@@ -1,4 +1,7 @@
 import { supabase } from "../../config/supabase.js";
+import { loadSidebar } from "../../elements/sidebar.js";
+
+await loadSidebar();
 
 const form = document.getElementById('profileForm');
 const message = document.getElementById('message');
