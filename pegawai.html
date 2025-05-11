@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Profile Management</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<body class="bg-gray-100 min-h-screen flex">
+  <!-- Sidebar -->
+  <div class="w-64 bg-white rounded-r-3xl shadow-xl p-6 flex flex-col justify-between hidden md:flex">
+    <div>
+      <h2 class="text-2xl font-bold text-gray-800 mb-6"><b><i>delvr!</i></b></h2>
+      <nav class="space-y-2">
+        <a href="#" class="flex items-center gap-3 py-2 px-4 rounded-full text-gray-600 hover:bg-indigo-100 hover:text-indigo-700">
+          <span class="material-icons text-xl">home</span>
+          <span class="text-lg">Home</span>
+        </a>
+        <a href="#" class="flex items-center gap-3 py-2 px-4 rounded-full text-gray-600 hover:bg-indigo-100 hover:text-indigo-700">
+          <span class="material-icons text-xl">local_shipping</span>
+          <span class="text-lg">Paket</span>
+        </a>
+        <a href="#" class="flex items-center gap-3 py-2 px-4 rounded-full text-gray-600 hover:bg-indigo-100 hover:text-indigo-700">
+          <span class="material-icons text-xl">groups</span>
+          <span class="text-lg">Akun</span>
+        </a>
+      </nav>
+    </div>
+    <div class="bg-gray-100 rounded-2xl px-6 py-4 flex items-center justify-between">
+      <div>
+        <p id="user-name" class="text-lg font-semibold text-gray-700">Loading...</p>
+        <p id="user-role" class="text-sm text-gray-500">Loading...</p>
+      </div>
+      <div id="logout-btn" class="cursor-pointer text-gray-500 hover:text-gray-700 transition ml-4">
+        <span class="material-icons">logout</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Floating Button for Sidebar -->
+  <button id="toggle-sidebar" class="fixed bottom-4 right-4 md:hidden flex items-center justify-center p-3 bg-gray-600 text-white rounded-xl shadow-lg hover:bg-gray-400 transition">
+    <span class="material-icons text-2xl">menu</span>
+  </button>
+
+  <!-- Main content -->
+  <div class="flex-1 p-10">
+    <div class="max-w-3xl mx-auto bg-white p-6 rounded-xl shadow-md">
+      <h1 class="text-2xl font-bold mb-4 text-gray-800">Manajemen Profil</h1>
+
+      <form id="profile-form" class="mb-6 flex flex-wrap gap-4">
+        <select id="user-id" class="flex-1 p-2 border border-gray-300 rounded-md" required>
+          <option value="">Pilih Akun Supabase</option>
+        </select>
+        <input type="email" id="email" placeholder="Email" class="flex-1 p-2 border border-gray-300 rounded-md bg-gray-100" readonly />
+        <input type="text" id="full-name" placeholder="Nama Lengkap" required class="flex-1 p-2 border border-gray-300 rounded-md" />
+        <input type="text" id="nik" placeholder="NIK" class="flex-1 p-2 border border-gray-300 rounded-md" />
+        <input type="text" id="phone" placeholder="Nomor Telepon" required class="flex-1 p-2 border border-gray-300 rounded-md" />
+        <input type="text" id="address" placeholder="Alamat" class="flex-1 p-2 border border-gray-300 rounded-md" />
+        <input type="date" id="birth-date" class="flex-1 p-2 border border-gray-300 rounded-md" />
+        <input type="date" id="join-date" value="${new Date().toISOString().split('T')[0]}" class="flex-1 p-2 border border-gray-300 rounded-md" readonly />
+        <input type="text" id="photo-url" placeholder="URL Foto" class="flex-1 p-2 border border-gray-300 rounded-md" />
+        <select id="role-id" class="flex-1 p-2 border border-gray-300 rounded-md" required>
+          <!-- Roles loaded from JS -->
+        </select>
+        <button type="submit" class="bg-indigo-600 text-white px-4 py-2 rounded-md hover:bg-indigo-700">Tambah</button>
+      </form>
+
+      <table class="w-full text-left border">
+        <thead>
+          <tr class="bg-gray-100 text-gray-700">
+            <th class="p-3 border-b">#</th>
+            <th class="p-3 border-b">Nama Lengkap</th>
+            <th class="p-3 border-b">Email</th>
+            <th class="p-3 border-b">Nomor Telepon</th>
+            <th class="p-3 border-b">Role</th>
+            <th class="p-3 border-b">Aksi</th>
+          </tr>
+        </thead>
+        <tbody id="profiles-table">
+          <!-- Profiles will be loaded here -->
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <script type="module" src="./js/pages/pegawai/main.js"></script>
+</body>
+</html>
