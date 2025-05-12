@@ -4,11 +4,18 @@ import { loadSidebar } from "../../elements/sidebar.js";
 await loadSidebar();
 
 const form = document.getElementById('profileForm');
-const message = document.getElementById('message');
 
 form.addEventListener('submit', async (e) => {
   e.preventDefault();
-  message.textContent = 'Memproses data...';
+
+  Swal.fire({
+    title: 'Mohon tunggu',
+    text: 'Memproses data...',
+    allowOutsideClick: false,
+    didOpen: () => {
+      Swal.showLoading();
+    }
+  });
 
   const formData = new FormData(form);
   const email = formData.get('email');
@@ -25,8 +32,11 @@ form.addEventListener('submit', async (e) => {
     const data = await res.json();
 
     if (res.status !== 200) {
-      message.textContent = `Error: ${data.error || 'Failed to fetch user ID'}`;
-      return;
+      return Swal.fire({
+        icon: 'error',
+        title: 'Gagal',
+        text: data.error || 'Gagal mengambil User ID.'
+      });
     }
 
     const userId = data.id;
@@ -47,12 +57,25 @@ form.addEventListener('submit', async (e) => {
     const { error: insertError } = await supabase.from('profiles').insert([profile]);
 
     if (insertError) {
-      message.textContent = `Insert failed: ${insertError.message}`;
-    } else {
-      message.textContent = 'Data pegawai sudah ditambahkan!';
-      form.reset();
+      return Swal.fire({
+        icon: 'error',
+        title: 'Insert Gagal',
+        text: insertError.message
+      });
     }
+
+    await Swal.fire({
+      icon: 'success',
+      title: 'Berhasil',
+      text: 'Data pegawai sudah ditambahkan!'
+    });
+
+    form.reset();
   } catch (error) {
-    message.textContent = `Error: ${error.message}`;
+    Swal.fire({
+      icon: 'error',
+      title: 'Terjadi kesalahan',
+      text: error.message
+    });
   }
 });
