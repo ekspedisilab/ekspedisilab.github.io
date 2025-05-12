@@ -62,20 +62,42 @@ async function loadProfiles() {
 window.deleteProfile = async function (id) {
   if (!id) {
     console.error("Invalid profile id:", id);
-    alert("Gagal menghapus user, ID tidak valid.");
+    Swal.fire({
+      icon: 'error',
+      title: 'ID tidak valid',
+      text: 'Gagal menghapus user, ID tidak valid.'
+    });
     return;
   }
 
-  const confirmDelete = confirm("Yakin ingin menghapus pegawai ini?");
-  if (!confirmDelete) return;
+  const result = await Swal.fire({
+    title: 'Yakin ingin menghapus pegawai ini?',
+    text: "Tindakan ini tidak dapat dibatalkan!",
+    icon: 'warning',
+    showCancelButton: true,
+    confirmButtonColor: '#d33',
+    cancelButtonColor: '#3085d6',
+    confirmButtonText: 'Ya, hapus!',
+    cancelButtonText: 'Batal'
+  });
+
+  if (!result.isConfirmed) return;
 
   const { error } = await supabase.from("profiles").delete().eq("id", id);
   if (error) {
-    alert("Gagal menghapus user.");
+    Swal.fire({
+      icon: 'error',
+      title: 'Terjadi kesalahan',
+      text: 'Gagal menghapus data pegawai!'
+    });
   } else {
+    await Swal.fire({
+      icon: 'success',
+      title: 'Berhasil',
+      text: 'Data pegawai sudah dihapus!'
+    });
     loadProfiles();
   }
 };
-
 
 loadProfiles();
