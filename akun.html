@@ -9,40 +9,42 @@
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body class="bg-gray-100 min-h-screen flex">
-  <!-- sidebar -->
+  <!-- Sidebar (empty for now) -->
   <div id="sidebar-container"></div>
-  
+
   <div id="main-content" class="flex-1 bg-gray-100 overflow-y-auto p-10">
-    <div class="bg-white p-8 rounded-xl shadow-md">
+    <div class="bg-white p-8 rounded-xl shadow-lg">
 
-      <div class="mb-6 flex gap-4">
-        <h1 class="text-2xl font-bold mb-4 text-gray-800">Akun dan Data Pegawai</h1>
-
-        <a href="/pegawai.html" class="flex items-center gap-3 py-2 px-4 rounded-full bg-indigo-600 text-white hover:bg-indigo-500">
+      <!-- Heading and Button in a Flex container -->
+      <div class="mb-6 flex items-center justify-between gap-4">
+        <h1 class="text-2xl font-semibold text-gray-800">Akun dan Data Pegawai</h1>
+        
+        <!-- Button moved to the right with improved styles -->
+        <a href="/pegawai.html" class="flex items-center gap-3 py-3 px-6 rounded-full bg-indigo-600 text-white hover:bg-indigo-500 transition duration-300 ease-in-out shadow-md hover:shadow-xl">
           <span class="material-icons text-xl">add</span>
-          <span class="text-lg">Tambah Akun Pegawai</span>
+          <span class="text-lg font-medium">Tambah Akun Pegawai</span>
         </a>
       </div>
 
-        <!-- Roles List -->
-        <table class="w-full text-left border">
-          <thead>
-            <tr class="bg-gray-100 text-gray-700">
-              <th class="p-3 border-b">Nama Lengkap</th>
-              <th class="p-3 border-b">NIK</th>
-              <th class="p-3 border-b">Telefon</th>
-              <th class="p-3 border-b">E-mail</th>
-              <th class="p-3 border-b">Alamat</th>
-              <th class="p-3 border-b">Tangal Lahir</th>
-              <th class="p-3 border-b">Tanggal Bekerja</th>
-              <th class="p-3 border-b">Role</th>
-              <th class="p-3 border-b">Aksi</th>
-            </tr>
-          </thead>
-          <tbody id="roles-table" class="text-gray-700">
-            <!-- Populated via JS -->
-          </tbody>
-        </table>
+      <!-- Roles List -->
+      <table class="w-full text-left border border-gray-300 rounded-lg">
+        <thead>
+          <tr class="bg-gray-100 text-gray-700">
+            <th class="p-4 border-b">Nama Lengkap</th>
+            <th class="p-4 border-b">NIK</th>
+            <th class="p-4 border-b">Telefon</th>
+            <th class="p-4 border-b">E-mail</th>
+            <th class="p-4 border-b">Alamat</th>
+            <th class="p-4 border-b">Tangal Lahir</th>
+            <th class="p-4 border-b">Tanggal Bekerja</th>
+            <th class="p-4 border-b">Role</th>
+            <th class="p-4 border-b">Aksi</th>
+          </tr>
+        </thead>
+        <tbody id="roles-table" class="text-gray-700">
+          <!-- Populated via JS -->
+        </tbody>
+      </table>
     </div>
   </div>
 
