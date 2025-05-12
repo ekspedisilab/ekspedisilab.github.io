@@ -20,40 +20,36 @@
           <h1 class="text-2xl font-bold mb-4 text-gray-800">Tambah data pegawai</h1>
             <form id="profileForm" class="mb-6 space-y-6">
             <div class="space-y-2">
-              <label for="full_name" class="text-sm font-semibold text-gray-700">Full Name</label>
+              <label for="full_name" class="text-sm font-semibold text-gray-700">Nama Lengkap</label>
               <input type="text" id="full_name" name="full_name" placeholder="Enter full name" required class="w-full p-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-indigo-600" />
             </div>
             <div class="space-y-2">
-              <label for="email" class="text-sm font-semibold text-gray-700">Email</label>
+              <label for="email" class="text-sm font-semibold text-gray-700">E-mail</label>
               <input type="email" id="email" name="email" placeholder="Enter email" required class="w-full p-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-indigo-600" />
             </div>
             <div class="space-y-2">
               <label for="nik" class="text-sm font-semibold text-gray-700">NIK</label>
-              <input type="text" id="nik" name="nik" placeholder="Enter NIK" class="w-full p-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-indigo-600" />
+              <input type="text" id="nik" name="nik" placeholder="Enter NIK" required class="w-full p-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-indigo-600" />
             </div>
             <div class="space-y-2">
-              <label for="phone" class="text-sm font-semibold text-gray-700">Phone</label>
-              <input type="text" id="phone" name="phone" placeholder="Enter phone number" class="w-full p-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-indigo-600" />
+              <label for="phone" class="text-sm font-semibold text-gray-700">No. Telefon</label>
+              <input type="text" id="phone" name="phone" placeholder="Enter phone number" required class="w-full p-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-indigo-600" />
             </div>
             <div class="space-y-2">
-              <label for="address" class="text-sm font-semibold text-gray-700">Address</label>
-              <textarea id="address" name="address" placeholder="Enter address" class="w-full p-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-indigo-600"></textarea>
+              <label for="address" class="text-sm font-semibold text-gray-700">Alamat</label>
+              <textarea id="address" name="address" placeholder="Enter address" required class="w-full p-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-indigo-600"></textarea>
             </div>
             <div class="space-y-2">
-              <label for="birth_date" class="text-sm font-semibold text-gray-700">Birth Date</label>
-              <input type="date" id="birth_date" name="birth_date" class="w-full p-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-indigo-600" />
+              <label for="birth_date" class="text-sm font-semibold text-gray-700">Tanggal lahir</label>
+              <input type="date" id="birth_date" name="birth_date" required class="w-full p-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-indigo-600" />
             </div>
             <div class="space-y-2">
-              <label for="join_date" class="text-sm font-semibold text-gray-700">Join Date</label>
-              <input type="date" id="join_date" name="join_date" class="w-full p-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-indigo-600" />
+              <label for="join_date" class="text-sm font-semibold text-gray-700">Tanggal Bekerja</label>
+              <input type="date" id="join_date" name="join_date" required class="w-full p-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-indigo-600" />
             </div>
             <div class="space-y-2">
-              <label for="role_id" class="text-sm font-semibold text-gray-700">Role ID</label>
-              <input type="number" id="role_id" name="role_id" placeholder="Enter Role ID" class="w-full p-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-indigo-600" />
-            </div>
-            <div class="space-y-2">
-              <label for="photo_url" class="text-sm font-semibold text-gray-700">Photo URL</label>
-              <input type="url" id="photo_url" name="photo_url" placeholder="Enter Photo URL" class="w-full p-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-indigo-600" />
+              <label for="role_id" class="text-sm font-semibold text-gray-700">Role</label>
+              <input type="number" id="role_id" name="role_id" placeholder="Enter Role ID" required class="w-full p-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-indigo-600" />
             </div>
             <button type="submit" class="w-full py-3 bg-indigo-600 text-white rounded-full hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-600">
               Submit

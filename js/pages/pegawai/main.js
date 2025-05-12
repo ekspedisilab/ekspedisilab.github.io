@@ -51,7 +51,6 @@ form.addEventListener('submit', async (e) => {
       birth_date: formData.get('birth_date') || null,
       join_date: formData.get('join_date') || null,
       role_id: formData.get('role_id') ? parseInt(formData.get('role_id')) : null,
-      photo_url: formData.get('photo_url')
     };
 
     const { error: insertError } = await supabase.from('profiles').insert([profile]);
