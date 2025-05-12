@@ -39,7 +39,21 @@ if (!session) {
   }
 }
 
-document.getElementById('logout-btn').addEventListener('click', async () => {
+// Fetch total number of employees
+const employeeCountEl = document.getElementById('employee-count');
+
+const { data: employees, error: employeeError } = await supabase
+  .from('profiles')
+  .select('id');
+
+if (employeeError) {
+  console.error("Gagal menghitung jumlah karyawan:", employeeError);
+  employeeCountEl.textContent = 'Error';
+} else {
+  employeeCountEl.textContent = employees.length;
+}
+
+document.getElementById('logout-btn')?.addEventListener('click', async () => {
   await supabase.auth.signOut();
   window.location.href = 'index.html';
 });
