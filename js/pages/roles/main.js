@@ -20,7 +20,7 @@ async function loadRoles() {
       <td class="p-3 border-b">${index + 1}</td>
       <td class="p-3 border-b">${role.name}</td>
       <td class="p-3 border-b space-x-2">
-        <button onclick="deleteRole(${role.id})" class="text-red-500 hover:underline">Hapus</button>
+        <button onclick="deleteRole(${role.id})" class="text-red-500 hover:underline"><span class="material-icons text-2xl">delete</span></button>
       </td>
     </tr>
   `).join("");
