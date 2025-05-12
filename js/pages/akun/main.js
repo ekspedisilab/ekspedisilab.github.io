@@ -28,22 +28,36 @@ async function loadProfiles() {
     return;
   }
 
-  tableBody.innerHTML = data.map((profil) => `
-    <tr>
-      <td class="p-3 border-b">${profil.full_name}</td>
-      <td class="p-3 border-b">${profil.nik}</td>
-      <td class="p-3 border-b">${profil.phone}</td>
-      <td class="p-3 border-b">${profil.email}</td>
-      <td class="p-3 border-b">${profil.address}</td>
-      <td class="p-3 border-b">${profil.birth_date}</td>
-      <td class="p-3 border-b">${profil.join_date}</td>
-      <td class="p-3 border-b">${profil.roles?.name || "-"}</td>
-      <td class="p-3 border-b space-x-2">
-        <button onclick="deleteProfile('${profil.id}')" class="text-red-500 hover:underline"><span class="material-icons text-2xl">delete</span></button>
-      </td>
-    </tr>
-  `).join("");
+  tableBody.innerHTML = data.map((profil) => {
+    const birthDate = new Date(profil.birth_date).toLocaleDateString('id-ID', {
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric'
+    });
+    const joinDate = new Date(profil.join_date).toLocaleDateString('id-ID', {
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric'
+    });
+
+    return `
+      <tr>
+        <td class="p-3 border-b">${profil.full_name}</td>
+        <td class="p-3 border-b">${profil.nik}</td>
+        <td class="p-3 border-b">${profil.phone}</td>
+        <td class="p-3 border-b">${profil.email}</td>
+        <td class="p-3 border-b">${profil.address}</td>
+        <td class="p-3 border-b">${birthDate}</td>
+        <td class="p-3 border-b">${joinDate}</td>
+        <td class="p-3 border-b">${profil.roles?.name || "-"}</td>
+        <td class="p-3 border-b space-x-2">
+          <button onclick="deleteProfile('${profil.id}')" class="text-red-500 hover:underline"><span class="material-icons text-2xl">delete</span></button>
+        </td>
+      </tr>
+    `;
+  }).join("");
 }
+
 
 window.deleteProfile = async function (id) {
   if (!id) {
